@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#3f2a32"/>
+  <rect x="8" y="8" width="48" height="48" rx="8" fill="#fff8f4"/>
+  <text x="50%" y="54%" font-family="'Lora', Georgia, serif" font-size="30" font-weight="600" fill="#3f2a32" dominant-baseline="middle" text-anchor="middle">G</text>
+</svg>

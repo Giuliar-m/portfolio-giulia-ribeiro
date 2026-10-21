@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giulia Ribeiro · Assistente Virtual para Médicos & Presença Digital</title>
+  
+  <!-- SEO & Meta Tags -->
+  <meta name="description" content="Agenda, atendimento e organização com estratégia, discrição e cuidado para médicos e clínicas. Criação de sites profissionais e mini sites de bio.">
+  <meta name="keywords" content="assistente virtual para médicos, secretária remota médicos, gestão de consultório, agenda médica, presença digital médicos, mini sites instagram, Giulia Ribeiro">
+  <meta name="author" content="Giulia Ribeiro">
+  <meta name="theme-color" content="#3f2a32">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Giulia Ribeiro · Assistente Virtual para Médicos">
+  <meta property="og:description" content="Sua rotina em boas mãos: agenda, atendimento e organização com estratégia, discrição e cuidado.">
+  <meta property="og:image" content="assets/giulia-ribeiro.webp">
+  <meta property="og:url" content="https://solucoesparamedicos.vercel.app">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+
+  <!-- Google Fonts: Lora (Editorial Serif) & Inter (Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barra de Progresso de Leitura Superior -->
+  <div id="scrollProgressBar" class="scroll-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+  <!-- CABEÇALHO / NAVBAR FIXA -->
+  <header id="mainHeader" class="site-header">
+    <div class="container">
+      <div class="nav-wrap">
+        <!-- Logo / Identidade Visual -->
+        <a href="#inicio" class="brand-badge" id="brandLink" aria-label="Ir para o início">
+          <span class="brand-emblem">G</span>
+          <span class="brand-text-full">Giulia Ribeiro · Portfólio 2026</span>
+          <span class="brand-text-short">Giulia Ribeiro</span>
+        </a>
+
+        <!-- Links de Navegação -->
+        <nav id="navMenu" class="nav-links" aria-label="Navegação principal">
+          <a href="#inicio" class="nav-link active">Início</a>
+          <a href="#quem-sou-eu" class="nav-link">Quem sou eu</a>
+          <a href="#desafios" class="nav-link">Desafios</a>
+          <a href="#solucao" class="nav-link">Método</a>
+          <a href="#servicos" class="nav-link">Serviços</a>
+          <a href="#como-funciona" class="nav-link">Como funciona</a>
+          <a href="#presenca-digital" class="nav-link">Presença Digital</a>
+          <a href="#beneficios" class="nav-link">Benefícios</a>
+          <a href="#contato" class="nav-link">Contato</a>
+        </nav>
+
+        <!-- CTA Rápido WhatsApp Navbar -->
+        <a href="https://wa.me/5521972427560?text=Ol%C3%A1%20Giulia,%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20seus%20servi%C3%A7os." 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="nav-cta"
+           id="navCtaBtn"
+           aria-label="Fale comigo no WhatsApp">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+          </svg>
+          <span>Fale comigo</span>
+        </a>
+
+        <!-- Botão Menu Mobile -->
+        <button id="navToggle" class="nav-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         SEÇÃO 1 — CAPA E APRESENTAÇÃO (Página 1 do PDF)
+         Fundo Vinho Escuro com Composição Editorial Fiel
+         ========================================================================== -->
+    <section id="inicio" class="section-hero on-dark">
+      <div class="hero-backdrop-glow"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Textos e Apresentação à Esquerda -->
+          <div class="hero-content fade-up">
+            <div class="hero-badge-wrap">
+              <span class="section-tag badge-header">
+                <span class="brand-emblem" style="width:20px; height:20px; font-size:0.75rem;">G</span>
+                PORTFÓLIO PROFISSIONAL · 2026
+              </span>
+            </div>
+
+            <span class="hero-subtag">ASSISTENTE VIRTUAL PARA MÉDICOS</span>
+            <h1 class="hero-name">Giulia<br>Ribeiro</h1>
+
+            <p class="hero-statement">
+              <strong>Sua rotina em boas mãos:</strong><br>
+              <span>agenda, atendimento e organização com estratégia, discrição e cuidado.</span>
+            </p>
+
+            <!-- Dois Botões Solicitados -->
+            <div class="hero-actions">
+              <a href="#servicos" class="btn btn-outline" id="heroServicesBtn">
+                <span>Conheça meus serviços</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+
+              <a href="https://wa.me/5521972427560?text=Ol%C3%A1%20Giulia,%20gostaria%20de%20conversar%20sobre%20a%20assist%C3%AAncia%20virtual%20para%20meu%20consult%C3%B3rio." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary" 
+                 id="heroContactBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+                </svg>
+                <span>Fale comigo</span>
+              </a>
+            </div>
+
+            <!-- Dados de Contato e Instagram da Capa -->
+            <div class="hero-meta-contacts">
+              <a href="https://www.instagram.com/solucoesparamedicos/" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>@solucoesparamedicos</span>
+              </a>
+              <span class="hero-meta-separator">·</span>
+              <a href="https://wa.me/5521972427560" target="_blank" rel="noopener noreferrer">
+                <span>(21) 97242-7560</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Fotografia com Moldura Rosa Queimado e Forma Orgânica Verde-Sálvia à Direita -->
+          <div class="hero-visual fade-up delay-1">
+            <div class="portrait-composition">
+              <!-- Elemento orgânico verde-sálvia ao fundo -->
+              <div class="organic-sage-shape" aria-hidden="true"></div>
+              
+              <!-- Moldura em arco rosa queimado -->
+              <div class="arch-frame-rose">
+                <div class="arch-image-wrap">
+                  <picture>
+                    <source srcset="assets/giulia-ribeiro.webp" type="image/webp">
+                    <img src="assets/giulia-ribeiro.png" 
+                         alt="Giulia Ribeiro sorrindo em seu escritório, assistente virtual para médicos" 
+                         class="arch-image" 
+                         width="1086" 
+                         height="1448" 
+                         fetchpriority="high"
+                         loading="eager">
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 2 — QUEM SOU EU (Página 2 do PDF)
+         Fundo Creme com Cards Blush e Trajetória Profissional
+         ========================================================================== -->
+    <section id="quem-sou-eu" class="section-about on-light">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="about-header fade-up">
+          <span class="section-tag on-light">QUEM SOU EU</span>
+          <h2 class="section-title medium" style="max-width: 820px; margin-bottom: 1rem;">
+            Quem cuida dos bastidores para você cuidar dos seus pacientes.
+          </h2>
+          <p class="section-lead">
+            Uno atendimento humano, visão de tecnologia e organização. Minha experiência me permite entender a rotina do consultório e conduzir cada contato com clareza e acolhimento.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Coluna da Esquerda: Fotografia e Identificação -->
+          <div class="about-visual fade-up delay-1">
+            <div class="about-photo-card">
+              <div class="about-photo-arch">
+                <picture>
+                  <source srcset="assets/giulia-ribeiro.webp" type="image/webp">
+                  <img src="assets/giulia-ribeiro.png" 
+                       alt="Fotografia de Giulia Ribeiro" 
+                       loading="lazy" 
+                       width="1086" 
+                       height="1448">
+                </picture>
+              </div>
+              <h3 class="about-caption-name">Giulia Ribeiro</h3>
+              <p class="about-caption-role">Assistente virtual para médicos</p>
+            </div>
+          </div>
+
+          <!-- Coluna da Direita: 3 Cards da Trajetória -->
+          <div class="about-timeline-cards">
+            <!-- Card 01 -->
+            <article class="timeline-card fade-up delay-1">
+              <span class="timeline-highlight">2 anos</span>
+              <h4 class="timeline-title">Atendimento ao público</h4>
+              <p class="timeline-desc">
+                Em empresa de mobilidade urbana: lidar com pessoas, resolver com calma e comunicar com clareza.
+              </p>
+            </article>
+
+            <!-- Card 02 -->
+            <article class="timeline-card fade-up delay-2">
+              <span class="timeline-highlight">Hoje</span>
+              <h4 class="timeline-title">Analista de soluções</h4>
+              <p class="timeline-desc">
+                Em empresa de tecnologia: entender o problema, estruturar o processo e entregar a solução.
+              </p>
+            </article>
+
+            <!-- Card 03 -->
+            <article class="timeline-card fade-up delay-3">
+              <span class="timeline-highlight">2026</span>
+              <h4 class="timeline-title">Análise e Desenvolvimento de Sistemas</h4>
+              <p class="timeline-desc">
+                Formação concluída este ano: lógica, organização e domínio de ferramentas digitais.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Rodapé Editorial Discreto -->
+        <div class="editorial-footnote">
+          <span>GIULIA RIBEIRO · ASSISTENTE VIRTUAL PARA MÉDICOS</span>
+          <span>02</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 3 — OS DESAFIOS DA ROTINA MÉDICA (Página 3 do PDF)
+         Fundo Blush (#f3ddd8) com 4 Cards Brancos
+         ========================================================================== -->
+    <section id="desafios" class="section-challenges on-light">
+      <div class="container">
+        <div class="challenges-layout">
+          <!-- Coluna Esquerda: Texto de Introdução Fixo -->
+          <div class="challenges-intro fade-up">
+            <span class="section-tag on-light">A DOR</span>
+            <h2 class="section-title medium">
+              Você estudou anos para atender. Não para responder mensagens.
+            </h2>
+            <p class="section-lead">
+              Quando o consultório depende só do médico, a rotina pesa e oportunidades escapam.
+            </p>
+          </div>
+
+          <!-- Coluna Direita: Grade com 4 Cards de Dores Reais -->
+          <div class="challenges-grid">
+            <!-- Card 1 -->
+            <div class="challenge-card fade-up delay-1">
+              <div class="challenge-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  <line x1="8" y1="10" x2="8" y2="10"></line>
+                  <line x1="12" y1="10" x2="12" y2="10"></line>
+                  <line x1="16" y1="10" x2="16" y2="10"></line>
+                </svg>
+              </div>
+              <h3 class="challenge-title">Mensagens sem resposta</h3>
+              <p class="challenge-desc">
+                Cada contato que espera demais é um paciente que pode escolher outro consultório.
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="challenge-card fade-up delay-2">
+              <div class="challenge-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                  <line x1="9" y1="16" x2="15" y2="16"></line>
+                </svg>
+              </div>
+              <h3 class="challenge-title">Agenda com buracos e faltas</h3>
+              <p class="challenge-desc">
+                Sem confirmação e remarcação organizadas, horários ficam vazios.
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="challenge-card fade-up delay-3">
+              <div class="challenge-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h3 class="challenge-title">Tempo gasto no administrativo</h3>
+              <p class="challenge-desc">
+                Horas que deveriam ir para pacientes, estudo e descanso viram tarefas operacionais.
+              </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="challenge-card fade-up delay-4">
+              <div class="challenge-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              </div>
+              <h3 class="challenge-title">Presença digital que não convence</h3>
+              <p class="challenge-desc">
+                Perfil sem clareza de como agendar e sem informações para gerar confiança.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rodapé Editorial Discreto -->
+        <div class="editorial-footnote">
+          <span>GIULIA RIBEIRO · ASSISTENTE VIRTUAL PARA MÉDICOS</span>
+          <span>03</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 4 — MINHA SOLUÇÃO (Página 4 do PDF)
+         Fundo Creme com 5 Passos Visuais (01-04 Vinho, 05 Rosa Queimado)
+         ========================================================================== -->
+    <section id="solucao" class="section-solution on-light">
+      <div class="container">
+        <div class="solution-header fade-up">
+          <span class="section-tag on-light">A SOLUÇÃO</span>
+          <h2 class="section-title medium" style="max-width: 860px;">
+            Não só respondo mensagens: conduzo o paciente até a consulta.
+          </h2>
+          <p class="section-lead">
+            Cada atendimento segue um caminho pensado, do primeiro contato ao retorno. Assim, interesse vira agendamento e agendamento vira paciente que volta.
+          </p>
+        </div>
+
+        <!-- Sequência Horizontal (Desktop) / Vertical (Mobile) -->
+        <div class="solution-steps">
+          <!-- Etapa 01 -->
+          <div class="step-card step-dark fade-up delay-1">
+            <span class="step-number">01</span>
+            <h3 class="step-title">Primeiro contato</h3>
+            <p class="step-desc">Resposta rápida, acolhedora e sem frieza.</p>
+          </div>
+
+          <!-- Etapa 02 -->
+          <div class="step-card step-dark fade-up delay-2">
+            <span class="step-number">02</span>
+            <h3 class="step-title">Entender a necessidade</h3>
+            <p class="step-desc">Perguntas certas para saber o que o paciente procura.</p>
+          </div>
+
+          <!-- Etapa 03 -->
+          <div class="step-card step-dark fade-up delay-3">
+            <span class="step-number">03</span>
+            <h3 class="step-title">Apresentar o atendimento</h3>
+            <p class="step-desc">Informação clara que gera confiança e tira dúvidas.</p>
+          </div>
+
+          <!-- Etapa 04 -->
+          <div class="step-card step-dark fade-up delay-4">
+            <span class="step-number">04</span>
+            <h3 class="step-title">Agendar e confirmar</h3>
+            <p class="step-desc">Horário fechado, lembrete enviado e faltas reduzidas.</p>
+          </div>
+
+          <!-- Etapa 05 (Destaque em Rosa Queimado conforme o PDF original) -->
+          <div class="step-card step-accent fade-up delay-5">
+            <span class="step-number">05</span>
+            <h3 class="step-title">Acompanhar e fidelizar</h3>
+            <p class="step-desc">Retorno após a consulta para o paciente voltar.</p>
+          </div>
+        </div>
+
+        <!-- Rodapé Editorial Discreto -->
+        <div class="editorial-footnote">
+          <span>GIULIA RIBEIRO · ASSISTENTE VIRTUAL PARA MÉDICOS</span>
+          <span>04</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 5 — SERVIÇOS DE ASSISTÊNCIA VIRTUAL (Página 5 do PDF)
+         Fundo Blush (#f3ddd8) com Grade 3x2 de Cards Brancos
+         ========================================================================== -->
+    <section id="servicos" class="section-services on-light">
+      <div class="container">
+        <div class="services-header fade-up">
+          <span class="section-tag on-light">MEU FOCO</span>
+          <h2 class="section-title medium">
+            Assistência virtual para o seu consultório
+          </h2>
+        </div>
+
+        <!-- Grade 3x2 Elegante -->
+        <div class="services-grid">
+          <!-- Card 01 -->
+          <div class="service-card fade-up delay-1">
+            <div class="service-card-top">
+              <span class="service-number">01</span>
+              <div class="service-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+            </div>
+            <h3 class="service-title">Gestão de agenda</h3>
+            <p class="service-desc">
+              Marcação, remarcação e confirmação de consultas.
+            </p>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="service-card fade-up delay-2">
+            <div class="service-card-top">
+              <span class="service-number">02</span>
+              <div class="service-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="service-title">Atendimento e conversão</h3>
+            <p class="service-desc">
+              WhatsApp e e-mail conduzidos para transformar contato em consulta.
+            </p>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="service-card fade-up delay-3">
+            <div class="service-card-top">
+              <span class="service-number">03</span>
+              <div class="service-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="service-title">Follow-up e retorno</h3>
+            <p class="service-desc">
+              Acompanhamento pós-consulta e lembretes de retorno.
+            </p>
+          </div>
+
+          <!-- Card 04 -->
+          <div class="service-card fade-up delay-1">
+            <div class="service-card-top">
+              <span class="service-number">04</span>
+              <div class="service-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+            </div>
+            <h3 class="service-title">Organização da rotina</h3>
+            <p class="service-desc">
+              Planilhas, documentos e fluxos claros para o dia a dia.
+            </p>
+          </div>
+
+          <!-- Card 05 -->
+          <div class="service-card fade-up delay-2">
+            <div class="service-card-top">
+              <span class="service-number">05</span>
+              <div class="service-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+              </div>
+            </div>
+            <h3 class="service-title">Triagem de mensagens</h3>
+            <p class="service-desc">
+              O que é urgente chega até você, o resto eu resolvo.
+            </p>
+          </div>
+
+          <!-- Card 06 -->
+          <div class="service-card fade-up delay-3">
+            <div class="service-card-top">
+              <span class="service-number">06</span>
+              <div class="service-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              </div>
+            </div>
+            <h3 class="service-title">Acompanhamento de números</h3>
+            <p class="service-desc">
+              Controle simples de contatos, agendamentos e faltas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Rodapé Editorial Discreto -->
+        <div class="editorial-footnote">
+          <span>GIULIA RIBEIRO · ASSISTENTE VIRTUAL PARA MÉDICOS</span>
+          <span>05</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 6 — COMO FUNCIONA (Página 6 do PDF)
+         Fundo Creme, Card LGPD Vinho à Esquerda e 4 Etapas à Direita
+         ========================================================================== -->
+    <section id="como-funciona" class="section-process on-light">
+      <div class="container">
+        <div class="process-layout">
+          <!-- Coluna Esquerda: Título e Destaque LGPD -->
+          <div class="process-left fade-up">
+            <div>
+              <span class="section-tag on-light">COMO FUNCIONA</span>
+              <h2 class="section-title medium">
+                Um processo simples, sem complicação.
+              </h2>
+            </div>
+
+            <!-- Card Destaque LGPD Fundo Vinho com Verde-Sálvia -->
+            <div class="discretion-card">
+              <div class="discretion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+              </div>
+              <div class="discretion-content">
+                <h4>Discrição como padrão</h4>
+                <p>Cuidado com os dados dos seus pacientes, em linha com a LGPD, em todas as etapas.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: 4 Passos Numerados em Fundo Blush -->
+          <div class="process-steps-list">
+            <!-- Passo 1 -->
+            <div class="process-pill fade-up delay-1">
+              <span class="process-pill-num">1</span>
+              <div class="process-pill-content">
+                <h4>Conversa inicial</h4>
+                <p>Entendo sua especialidade, seu público e o que mais pesa na sua rotina.</p>
+              </div>
+            </div>
+
+            <!-- Passo 2 -->
+            <div class="process-pill fade-up delay-2">
+              <span class="process-pill-num">2</span>
+              <div class="process-pill-content">
+                <h4>Mapeamento da rotina</h4>
+                <p>Desenho como agenda, mensagens e retornos vão funcionar.</p>
+              </div>
+            </div>
+
+            <!-- Passo 3 -->
+            <div class="process-pill fade-up delay-3">
+              <span class="process-pill-num">3</span>
+              <div class="process-pill-content">
+                <h4>Implantação</h4>
+                <p>Começo a atender, organizar e conduzir seus pacientes.</p>
+              </div>
+            </div>
+
+            <!-- Passo 4 -->
+            <div class="process-pill fade-up delay-4">
+              <span class="process-pill-num">4</span>
+              <div class="process-pill-content">
+                <h4>Acompanhamento e ajustes</h4>
+                <p>Reviso o que funciona e melhoro o processo continuamente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rodapé Editorial Discreto -->
+        <div class="editorial-footnote">
+          <span>GIULIA RIBEIRO · ASSISTENTE VIRTUAL PARA MÉDICOS</span>
+          <span>06</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 7 — SERVIÇOS DE PRESENÇA DIGITAL (Página 7 do PDF)
+         Fundo Vinho Escuro (#3f2a32) com Dois Grandes Cards Creme
+         ========================================================================== -->
+    <section id="presenca-digital" class="section-digital on-dark">
+      <div class="container">
+        <div class="digital-header fade-up">
+          <span class="section-tag on-dark">SERVIÇOS POR FORA</span>
+          <h2 class="section-title medium" style="max-width: 820px; margin-bottom: 0.85rem;">
+            Além da assistência: sua presença digital completa.
+          </h2>
+          <p class="section-lead">
+            Contratados separadamente ou junto com a assistência virtual, com a mesma atenção aos detalhes.
+          </p>
+        </div>
+
+        <!-- Dois Grandes Cards -->
+        <div class="digital-cards-grid">
+          <!-- Card A: Sites Profissionais -->
+          <article class="digital-card fade-up delay-1">
+            <div>
+              <span class="digital-card-tag">SERVIÇO A</span>
+              <h3 class="digital-card-title">Criação de sites profissionais</h3>
+              <p class="digital-card-desc">
+                Para o médico ser encontrado no Google, com visual limpo e confiável.
+              </p>
+
+              <ul class="digital-feature-list">
+                <li class="digital-feature-item">
+                  <span class="digital-feature-dot" aria-hidden="true"></span>
+                  <span>Apresentação profissional e especialidades</span>
+                </li>
+                <li class="digital-feature-item">
+                  <span class="digital-feature-dot" aria-hidden="true"></span>
+                  <span>Informações sobre atendimentos e como agendar</span>
+                </li>
+                <li class="digital-feature-item">
+                  <span class="digital-feature-dot" aria-hidden="true"></span>
+                  <span>Botão de WhatsApp e localização no mapa</span>
+                </li>
+                <li class="digital-feature-item">
+                  <span class="digital-feature-dot" aria-hidden="true"></span>
+                  <span>Estrutura pensada para aparecer no Google</span>
+                </li>
+                <li class="digital-feature-item">
+                  <span class="digital-feature-dot" aria-hidden="true"></span>
+                  <span>Layout adaptado para celulares, tablets e computadores</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="digital-card-cta">
+              <a href="https://wa.me/5521972427560?text=Ol%C3%A1%20Giulia,%20tenho%20interesse%20na%20cria%C3%A7%C3%A3o%20de%20um%20site%20profissional%20para%20meu%20consult%C3%B3rio." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-outline-dark"
+                 id="ctaSiteProfissional">
+                <span>Quero um site profissional</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card B: Mini Sites de Bio para Instagram -->
+          <article class="digital-card fade-up delay-2">
+            <div>
+              <span class="digital-card-tag">SERVIÇO B</span>
+              <h3 class="digital-card-title">Mini sites de bio para Instagram</h3>
+              <p class="digital-card-desc">
+                Uma página personalizada no link do perfil que leva o paciente diretamente às principais informações e facilita o caminho até o agendamento.
+              </p>
+
+              <ul class="digital-feature-list">
+                <li class="digital-feature-item">
+                  <span class="digital-feature-dot" aria-hidden="true"></span>
+                  <span>Botão para agendamento</span>
+                </li>
+                <li class="digital-feature-item">
+                  <span class="digital-feature-dot" aria-hidden="true"></span>
+                  <span>Acesso direto ao WhatsApp</span>
+                </li>
+                <li class="digital-feature-item">
+                  <span class="digital-feature-dot" aria-hidden="true"></span>
+                  <span>Endereço e informações sobre como chegar</span>
+                </li>
+                <li class="digital-feature-item">
+                  <span class="digital-feature-dot" aria-hidden="true"></span>
+                  <span>Visual alinhado à marca e identidade do profissional</span>
+                </li>
+                <li class="digital-feature-item">
+                  <span class="digital-feature-dot" aria-hidden="true"></span>
+                  <span>Pronto para o celular, exatamente onde o paciente está</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="digital-card-cta">
+              <a href="https://wa.me/5521972427560?text=Ol%C3%A1%20Giulia,%20gostaria%20de%20saber%20mais%20sobre%20o%20mini%20site%20de%20bio%20para%20meu%20Instagram." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-outline-dark"
+                 id="ctaMiniBio">
+                <span>Quero um mini site de bio</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Rodapé Editorial Discreto -->
+        <div class="editorial-footnote">
+          <span>GIULIA RIBEIRO · ASSISTENTE VIRTUAL PARA MÉDICOS</span>
+          <span>07</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 8 — BENEFÍCIOS (Página 8 do PDF)
+         Fundo Creme com 4 Cards em Fundo Blush
+         ========================================================================== -->
+    <section id="beneficios" class="section-benefits on-light">
+      <div class="container">
+        <div class="benefits-header fade-up">
+          <span class="section-tag on-light">O QUE VOCÊ GANHA</span>
+          <h2 class="section-title medium" style="max-width: 820px;">
+            Um consultório mais organizado e um atendimento que transmite confiança.
+          </h2>
+        </div>
+
+        <!-- Grade 2x2 dos Benefícios -->
+        <div class="benefits-grid">
+          <!-- Benefício 01 -->
+          <div class="benefit-card fade-up delay-1">
+            <span class="benefit-num">01</span>
+            <h3 class="benefit-title">Mais tempo para o que importa</h3>
+            <p class="benefit-desc">
+              Você foca nos pacientes e eu cuido das tarefas administrativas combinadas.
+            </p>
+          </div>
+
+          <!-- Benefício 02 -->
+          <div class="benefit-card fade-up delay-2">
+            <span class="benefit-num">02</span>
+            <h3 class="benefit-title">Pacientes bem atendidos</h3>
+            <p class="benefit-desc">
+              Cuidado desde a primeira mensagem, com linguagem acolhedora.
+            </p>
+          </div>
+
+          <!-- Benefício 03 -->
+          <div class="benefit-card fade-up delay-3">
+            <span class="benefit-num">03</span>
+            <h3 class="benefit-title">Rotina previsível</h3>
+            <p class="benefit-desc">
+              Processos claros para agenda, mensagens e retornos.
+            </p>
+          </div>
+
+          <!-- Benefício 04 -->
+          <div class="benefit-card fade-up delay-4">
+            <span class="benefit-num">04</span>
+            <h3 class="benefit-title">Um único ponto de contato</h3>
+            <p class="benefit-desc">
+              Assistência e presença digital com a mesma profissional e o mesmo padrão.
+            </p>
+          </div>
+        </div>
+
+        <!-- Rodapé Editorial Discreto -->
+        <div class="editorial-footnote">
+          <span>GIULIA RIBEIRO · ASSISTENTE VIRTUAL PARA MÉDICOS</span>
+          <span>08</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 9 — CONTATO (Página 9 do PDF)
+         Fundo Vinho Escuro com Botões Grandes Creme e Foto em Moldura
+         ========================================================================== -->
+    <section id="contato" class="section-contact on-dark">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Textos e Botões Grandes à Esquerda -->
+          <div class="contact-content fade-up">
+            <span class="section-tag on-dark">VAMOS CONVERSAR?</span>
+            <h2 class="section-title large">
+              Vamos organizar a sua rotina?
+            </h2>
+            <p class="section-lead">
+              Me chame para uma conversa sem compromisso e eu mostro como posso ajudar o seu consultório.
+            </p>
+
+            <!-- Grupo de Botões Grandes Estilo PDF -->
+            <div class="contact-buttons-group">
+              <!-- Botão do Instagram -->
+              <a href="https://www.instagram.com/solucoesparamedicos/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="contact-btn-card"
+                 id="contactInstagramBtn"
+                 aria-label="Perfil do Instagram @solucoesparamedicos">
+                <div class="contact-btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </div>
+                <div class="contact-btn-info">
+                  <span class="contact-btn-sub">INSTAGRAM</span>
+                  <span class="contact-btn-main">@solucoesparamedicos</span>
+                </div>
+              </a>
+
+              <!-- Botão do WhatsApp -->
+              <a href="https://wa.me/5521972427560?text=Ol%C3%A1%20Giulia,%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20organizar%20a%20rotina%20do%20meu%20consult%C3%B3rio." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="contact-btn-card"
+                 id="contactWhatsappBtn"
+                 aria-label="Iniciar conversa no WhatsApp (21) 97242-7560">
+                <div class="contact-btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+                  </svg>
+                </div>
+                <div class="contact-btn-info">
+                  <span class="contact-btn-sub">WHATSAPP</span>
+                  <span class="contact-btn-main">(21) 97242-7560</span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Assinatura Fiel à Página 9 -->
+            <div class="contact-signature-badge">
+              <span class="brand-emblem" style="width:24px; height:24px; font-size:0.85rem;">G</span>
+              <span>GIULIA RIBEIRO · ASSISTENTE VIRTUAL PARA MÉDICOS</span>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Fotografia com Moldura Rosa Queimado e Forma Orgânica Verde-Sálvia -->
+          <div class="contact-visual fade-up delay-1">
+            <div class="portrait-composition">
+              <!-- Elemento orgânico verde-sálvia ao fundo -->
+              <div class="organic-sage-shape" aria-hidden="true"></div>
+              
+              <!-- Moldura em arco rosa queimado -->
+              <div class="arch-frame-rose">
+                <div class="arch-image-wrap">
+                  <picture>
+                    <source srcset="assets/giulia-ribeiro.webp" type="image/webp">
+                    <img src="assets/giulia-ribeiro.png" 
+                         alt="Giulia Ribeiro, Assistente Virtual para Médicos" 
+                         class="arch-image" 
+                         loading="lazy" 
+                         width="1086" 
+                         height="1448">
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ DO SITE -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-wrap">
+        <div class="footer-copy">
+          <p>© 2026 Giulia Ribeiro · Todos os direitos reservados. Assistente Virtual para Médicos & Presença Digital.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#inicio">Início</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#presenca-digital">Sites e Bio</a>
+          <a href="#contato">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ELEMENTOS FLUTUANTES: WHATSAPP E VOLTAR AO TOPO -->
+  <div class="floating-actions" aria-label="Ações rápidas">
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao início da página">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <a href="https://wa.me/5521972427560?text=Ol%C3%A1%20Giulia,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="floating-whatsapp"
+       id="floatingWhatsappBtn"
+       aria-label="Abrir conversa no WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+      </svg>
+      <span>WhatsApp Direto</span>
+    </a>
+  </div>
+
+  <!-- Script Vanilla JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

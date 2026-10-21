@@ -1,0 +1,1680 @@
+/* ==========================================================================
+   PORTFÓLIO GIULIA RIBEIRO — ASSISTENTE VIRTUAL PARA MÉDICOS
+   Identidade Visual Fiel ao Portfólio Original (PDF 2026)
+   Tecnologias: HTML5, CSS3 Puro, Vanilla JavaScript
+   ========================================================================== */
+
+/* --- VARIÁVEIS E TOKENS DE DESIGN --- */
+:root {
+  /* Paleta de Cores Extraída Diretamente do PDF */
+  --color-wine: #3f2a32;             /* Vinho escuro principal (Capa, Serviços Digitais, Contato) */
+  --color-wine-dark: #322027;        /* Vinho escuro aprofundado */
+  --color-wine-deep: #25161c;        /* Vinho ultradark para contrastes */
+  --color-wine-light: #523842;       /* Vinho sutilmente iluminado */
+
+  --color-rose: #9c525e;             /* Rosa queimado destaque / molduras / bordas / card 05 */
+  --color-rose-light: #b46875;       /* Rosa queimado hover */
+  --color-rose-subtle: rgba(156, 82, 94, 0.18);
+
+  --color-sage: #748879;             /* Verde-sálvia formas orgânicas / badges / ícones */
+  --color-sage-light: #8ca091;       /* Verde-sálvia hover */
+  --color-sage-subtle: rgba(116, 136, 121, 0.2);
+
+  --color-cream: #fff8f4;            /* Creme principal dos fundos claros */
+  --color-cream-muted: #fbf1ec;      /* Creme sutilmente aquecido */
+
+  --color-blush: #f3ddd8;            /* Rosa claro / blush dos cards e seções */
+  --color-blush-soft: #fbf0ec;       /* Blush suave */
+  --color-blush-hover: #edd1cb;      /* Blush ao passar o mouse */
+
+  --color-white: #ffffff;            /* Branco puro para cards internos */
+  --color-card-border: rgba(156, 82, 94, 0.12);
+
+  /* Cores de Texto */
+  --color-text-dark: #2c1c22;        /* Texto escuro nos fundos claros */
+  --color-text-muted: #6e5860;       /* Texto secundário nos fundos claros */
+  --color-text-light: #fff8f4;       /* Texto claro nos fundos vinho */
+  --color-text-light-muted: #d9c8ce; /* Texto secundário nos fundos vinho */
+
+  /* Tipografia */
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Espaçamentos e Dimensões */
+  --container-max: 1220px;
+  --container-pad: clamp(1.25rem, 5vw, 3rem);
+  --section-pad-y: clamp(4.5rem, 8vw, 7.5rem);
+
+  /* Sombras e Elevações Elegantes */
+  --shadow-sm: 0 4px 16px rgba(63, 42, 50, 0.05);
+  --shadow-md: 0 8px 30px rgba(63, 42, 50, 0.08);
+  --shadow-lg: 0 16px 48px rgba(63, 42, 50, 0.14);
+  --shadow-wine: 0 14px 40px rgba(44, 28, 34, 0.35);
+
+  /* Raios de Arredondamento */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-arch: 240px 240px 0 0;
+
+  /* Transições Suaves */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-out);
+  --transition-normal: 0.35s var(--ease-out);
+  --transition-slow: 0.6s var(--ease-out);
+}
+
+/* --- RESET & BASE --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-dark);
+  background-color: var(--color-cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img, picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --- LEITOR / PROGRESSO DE ROLAGEM --- */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-rose), var(--color-sage));
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* --- CONTAINER CENTRALIZADO --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+/* --- CABEÇALHO / NAVBAR FIXA --- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  background-color: rgba(63, 42, 50, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 248, 244, 0.08);
+  transition: background-color var(--transition-normal), padding var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.site-header.scrolled {
+  padding: 0.65rem 0;
+  background-color: rgba(50, 32, 39, 0.95);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-cream);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.brand-emblem {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: var(--color-cream);
+  color: var(--color-wine);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.brand-text-full {
+  display: inline-block;
+}
+
+.brand-text-short {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.nav-link {
+  color: rgba(255, 248, 244, 0.82);
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-rose);
+  transition: width var(--transition-normal);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-cream);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 50px;
+  background-color: var(--color-rose);
+  color: var(--color-cream);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 14px rgba(156, 82, 94, 0.4);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.nav-cta:hover {
+  background-color: var(--color-rose-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(156, 82, 94, 0.6);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+.nav-toggle span {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-cream);
+  border-radius: 2px;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- SEÇÃO GLOBAL: ETIQUETAS E TÍTULOS --- */
+.section-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.section-tag.on-dark {
+  color: var(--color-blush);
+}
+
+.section-tag.on-light {
+  color: var(--color-rose);
+}
+
+.section-tag.badge-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 1rem;
+  background-color: rgba(255, 248, 244, 0.08);
+  border: 1px solid rgba(255, 248, 244, 0.14);
+  border-radius: 50px;
+  color: var(--color-cream);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+}
+
+.section-title.large {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+}
+
+.section-title.medium {
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+}
+
+.section-lead {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.65;
+  font-weight: 300;
+  max-width: 680px;
+}
+
+.on-dark .section-title {
+  color: var(--color-cream);
+}
+
+.on-dark .section-lead {
+  color: var(--color-text-light-muted);
+}
+
+.on-light .section-title {
+  color: var(--color-wine);
+}
+
+.on-light .section-lead {
+  color: var(--color-text-muted);
+}
+
+/* Rodapé discreto estilo editorial de cada seção (reproduzindo o PDF) */
+.editorial-footnote {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding-top: 1.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.on-dark .editorial-footnote {
+  border-top: 1px solid rgba(255, 248, 244, 0.1);
+  color: var(--color-text-light-muted);
+}
+
+.on-light .editorial-footnote {
+  border-top: 1px solid rgba(63, 42, 50, 0.1);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   SEÇÃO 1 — CAPA E APRESENTAÇÃO (Página 1 do PDF)
+   Fundo Vinho Escuro com Composição Editorial
+   ========================================================================== */
+.section-hero {
+  position: relative;
+  background-color: var(--color-wine);
+  color: var(--color-cream);
+  min-height: 100vh;
+  padding-top: clamp(7.5rem, 12vw, 9.5rem);
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Elementos orgânicos sutis de fundo */
+.hero-backdrop-glow {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 750px;
+  max-height: 750px;
+  background: radial-gradient(circle, rgba(156, 82, 94, 0.15) 0%, rgba(63, 42, 50, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-badge-wrap {
+  margin-bottom: 2rem;
+}
+
+.hero-subtag {
+  color: var(--color-blush);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.hero-name {
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 7vw, 5.6rem);
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--color-cream);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-statement {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.55;
+  color: var(--color-cream);
+  margin-bottom: 2.2rem;
+  max-width: 540px;
+}
+
+.hero-statement strong {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--color-cream);
+}
+
+.hero-statement span {
+  font-weight: 300;
+  color: var(--color-text-light-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Botões com Estilo Fiel e Elegante */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.85rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--color-cream);
+  color: var(--color-wine);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--color-rose);
+  color: var(--color-cream);
+  background-color: rgba(156, 82, 94, 0.12);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-rose);
+  color: var(--color-cream);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(156, 82, 94, 0.4);
+}
+
+.btn-outline-dark {
+  border: 1.5px solid var(--color-wine);
+  color: var(--color-wine);
+  background-color: transparent;
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--color-wine);
+  color: var(--color-cream);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-meta-contacts {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.88rem;
+  color: var(--color-text-light-muted);
+  font-weight: 300;
+}
+
+.hero-meta-contacts a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-text-light-muted);
+  transition: color var(--transition-fast);
+}
+
+.hero-meta-contacts a:hover {
+  color: var(--color-cream);
+}
+
+.hero-meta-separator {
+  opacity: 0.4;
+}
+
+/* Moldura e Composição da Foto Hero (Fiel à Capa do PDF) */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.portrait-composition {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Forma orgânica verde-sálvia ao fundo */
+.organic-sage-shape {
+  position: absolute;
+  right: -24px;
+  bottom: 0;
+  width: 90%;
+  height: 92%;
+  background-color: var(--color-sage);
+  border-radius: 260px 260px 0 0;
+  z-index: 1;
+  transition: transform var(--transition-slow);
+}
+
+/* Moldura rosa queimado que envolve o arco da foto */
+.arch-frame-rose {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: 3.5px solid var(--color-rose);
+  border-bottom: none;
+  border-radius: 250px 250px 0 0;
+  box-shadow: var(--shadow-wine);
+}
+
+.arch-image-wrap {
+  width: 100%;
+  height: clamp(380px, 46vw, 540px);
+  border-radius: 240px 240px 0 0;
+  overflow: hidden;
+  background-color: var(--color-wine-dark);
+}
+
+.arch-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform var(--transition-slow);
+}
+
+.portrait-composition:hover .arch-image {
+  transform: scale(1.03);
+}
+
+.portrait-composition:hover .organic-sage-shape {
+  transform: translate(6px, -4px);
+}
+
+/* ==========================================================================
+   SEÇÃO 2 — QUEM SOU EU (Página 2 do PDF)
+   Fundo Creme com Cards Blush
+   ========================================================================== */
+.section-about {
+  background-color: var(--color-cream);
+  color: var(--color-text-dark);
+  padding: var(--section-pad-y) 0;
+}
+
+.about-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.about-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-photo-card {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-photo-arch {
+  width: 100%;
+  height: clamp(340px, 38vw, 440px);
+  border-radius: 200px 200px 0 0;
+  overflow: hidden;
+  border: 3px solid var(--color-rose);
+  border-bottom: none;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1.5rem;
+  background-color: var(--color-blush);
+}
+
+.about-photo-arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  transition: transform var(--transition-slow);
+}
+
+.about-photo-card:hover .about-photo-arch img {
+  transform: scale(1.04);
+}
+
+.about-caption-name {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--color-wine);
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.about-caption-role {
+  font-size: 0.82rem;
+  color: var(--color-rose);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.about-timeline-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.timeline-card {
+  background-color: var(--color-blush);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  border: 1px solid rgba(156, 82, 94, 0.1);
+}
+
+.timeline-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-highlight {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+  font-weight: 600;
+  color: var(--color-rose);
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.timeline-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--color-wine);
+  margin-bottom: 0.85rem;
+  line-height: 1.35;
+}
+
+.timeline-desc {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   SEÇÃO 3 — OS DESAFIOS DA ROTINA MÉDICA (Página 3 do PDF)
+   Fundo Blush (#f3ddd8) com Cards Brancos
+   ========================================================================== */
+.section-challenges {
+  background-color: var(--color-blush);
+  color: var(--color-text-dark);
+  padding: var(--section-pad-y) 0;
+}
+
+.challenges-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.challenges-intro {
+  position: sticky;
+  top: 100px;
+}
+
+.challenges-intro .section-title {
+  margin-bottom: 1.25rem;
+}
+
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.35rem;
+}
+
+.challenge-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.6rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(156, 82, 94, 0.08);
+}
+
+.challenge-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.challenge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-blush-soft);
+  color: var(--color-rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+}
+
+.challenge-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.challenge-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-wine);
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+}
+
+.challenge-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   SEÇÃO 4 — MINHA SOLUÇÃO (Página 4 do PDF)
+   Fundo Creme com 5 Cards de Funil (Cards 1-4 Vinho, Card 5 Rosa Queimado)
+   ========================================================================== */
+.section-solution {
+  background-color: var(--color-cream);
+  color: var(--color-text-dark);
+  padding: var(--section-pad-y) 0;
+}
+
+.solution-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.solution-header .section-title {
+  margin-bottom: 1rem;
+}
+
+.solution-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.step-card {
+  border-radius: var(--radius-lg);
+  padding: 1.85rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.step-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Cards 01 a 04: Vinho escuro conforme o PDF */
+.step-card.step-dark {
+  background-color: var(--color-wine);
+  color: var(--color-cream);
+}
+
+.step-card.step-dark .step-number {
+  color: var(--color-blush);
+  border-bottom: 1px solid rgba(255, 248, 244, 0.15);
+}
+
+.step-card.step-dark .step-title {
+  color: var(--color-cream);
+}
+
+.step-card.step-dark .step-desc {
+  color: var(--color-text-light-muted);
+}
+
+/* Card 05: Rosa queimado de destaque conforme o PDF */
+.step-card.step-accent {
+  background-color: var(--color-rose);
+  color: var(--color-cream);
+  box-shadow: 0 10px 28px rgba(156, 82, 94, 0.35);
+}
+
+.step-card.step-accent .step-number {
+  color: var(--color-cream);
+  border-bottom: 1px solid rgba(255, 248, 244, 0.3);
+}
+
+.step-card.step-accent .step-title {
+  color: var(--color-cream);
+}
+
+.step-card.step-accent .step-desc {
+  color: var(--color-cream);
+  opacity: 0.92;
+}
+
+.step-number {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 600;
+  padding-bottom: 0.65rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.step-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   SEÇÃO 5 — SERVIÇOS DE ASSISTÊNCIA VIRTUAL (Página 5 do PDF)
+   Fundo Blush (#f3ddd8) com Grade 3x2 de Cards Brancos
+   ========================================================================== */
+.section-services {
+  background-color: var(--color-blush);
+  color: var(--color-text-dark);
+  padding: var(--section-pad-y) 0;
+}
+
+.services-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 1.8rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(156, 82, 94, 0.08);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.service-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.15rem;
+}
+
+.service-number {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--color-rose);
+  line-height: 1;
+}
+
+.service-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-cream);
+  color: var(--color-wine);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon-wrap svg {
+  width: 18px;
+  height: 18px;
+}
+
+.service-title {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--color-wine);
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+}
+
+.service-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   SEÇÃO 6 — COMO FUNCIONA (Página 6 do PDF)
+   Fundo Creme, Card LGPD Vinho à Esquerda e 4 Passos à Direita
+   ========================================================================== */
+.section-process {
+  background-color: var(--color-cream);
+  color: var(--color-text-dark);
+  padding: var(--section-pad-y) 0;
+}
+
+.process-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.process-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  position: sticky;
+  top: 100px;
+}
+
+/* Card Discrição como Padrão (Fundo Vinho com Verde-Sálvia) */
+.discretion-card {
+  background-color: var(--color-wine);
+  color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: 1.85rem 1.65rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 248, 244, 0.08);
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.discretion-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-sage);
+  color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(116, 136, 121, 0.4);
+}
+
+.discretion-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.discretion-content h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-cream);
+  margin-bottom: 0.45rem;
+}
+
+.discretion-content p {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--color-text-light-muted);
+  font-weight: 300;
+}
+
+.process-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.process-pill {
+  background-color: var(--color-blush);
+  border-radius: var(--radius-lg);
+  padding: 1.45rem 1.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  border: 1px solid rgba(156, 82, 94, 0.08);
+}
+
+.process-pill:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-blush-hover);
+}
+
+.process-pill-num {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-rose);
+  line-height: 1;
+  min-width: 32px;
+  flex-shrink: 0;
+}
+
+.process-pill-content h4 {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--color-wine);
+  margin-bottom: 0.35rem;
+}
+
+.process-pill-content p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   SEÇÃO 7 — SERVIÇOS DE PRESENÇA DIGITAL (Página 7 do PDF)
+   Fundo Vinho Escuro (#3f2a32) com Dois Grandes Cards Creme
+   ========================================================================== */
+.section-digital {
+  background-color: var(--color-wine);
+  color: var(--color-cream);
+  padding: var(--section-pad-y) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.digital-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.digital-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+.digital-card {
+  background-color: var(--color-cream);
+  color: var(--color-text-dark);
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 4vw, 3rem);
+  box-shadow: var(--shadow-wine);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  border: 1px solid rgba(255, 248, 244, 0.15);
+}
+
+.digital-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.digital-card-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-rose);
+  margin-bottom: 0.75rem;
+}
+
+.digital-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.4vw, 1.95rem);
+  font-weight: 600;
+  color: var(--color-wine);
+  margin-bottom: 0.85rem;
+  line-height: 1.25;
+}
+
+.digital-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(63, 42, 50, 0.1);
+}
+
+.digital-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.digital-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+}
+
+.digital-feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-sage);
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+  box-shadow: 0 0 0 3px rgba(116, 136, 121, 0.2);
+}
+
+.digital-card-cta {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   SEÇÃO 8 — BENEFÍCIOS (Página 8 do PDF)
+   Fundo Creme com 4 Cards em Fundo Blush
+   ========================================================================== */
+.section-benefits {
+  background-color: var(--color-cream);
+  color: var(--color-text-dark);
+  padding: var(--section-pad-y) 0;
+}
+
+.benefits-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.benefit-card {
+  background-color: var(--color-blush);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2rem;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  border: 1px solid rgba(156, 82, 94, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-blush-hover);
+}
+
+.benefit-num {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--color-rose);
+  margin-bottom: 0.85rem;
+  line-height: 1;
+}
+
+.benefit-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-wine);
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+}
+
+.benefit-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   SEÇÃO 9 — CONTATO E CONVERSA (Página 9 do PDF)
+   Fundo Vinho Escuro com Botões Grandes Creme e Foto em Moldura
+   ========================================================================== */
+.section-contact {
+  position: relative;
+  background-color: var(--color-wine);
+  color: var(--color-cream);
+  padding: clamp(5rem, 9vw, 8rem) 0 4rem;
+  overflow: hidden;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-content .section-title {
+  margin-bottom: 1.25rem;
+}
+
+.contact-content .section-lead {
+  margin-bottom: 2.5rem;
+}
+
+.contact-buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+/* Botões Grandes Creme do Contato com Ícones e Tipografia Fiel ao PDF */
+.contact-btn-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background-color: var(--color-cream);
+  color: var(--color-wine);
+  padding: 1.2rem 1.6rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-fast);
+  text-decoration: none;
+}
+
+.contact-btn-card:hover {
+  background-color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+}
+
+.contact-btn-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--color-blush);
+  color: var(--color-wine);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.contact-btn-card:hover .contact-btn-icon {
+  transform: scale(1.08);
+  background-color: var(--color-rose);
+  color: var(--color-cream);
+}
+
+.contact-btn-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contact-btn-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-btn-sub {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-rose);
+  margin-bottom: 0.15rem;
+}
+
+.contact-btn-main {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-wine);
+  letter-spacing: -0.01em;
+}
+
+.contact-signature-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-light-muted);
+}
+
+/* ==========================================================================
+   RODAPÉ DO SITE (FOOTER)
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-wine-dark);
+  color: var(--color-text-light-muted);
+  padding: 2.2rem 0;
+  border-top: 1px solid rgba(255, 248, 244, 0.08);
+  font-size: 0.82rem;
+}
+
+.footer-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.footer-copy {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-links a:hover {
+  color: var(--color-cream);
+}
+
+/* ==========================================================================
+   BOTÃO FLUTUANTE WHATSAPP & VOLTAR AO TOPO
+   ========================================================================== */
+.floating-actions {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 990;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.floating-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.35rem;
+  border-radius: 50px;
+  background-color: #25d366;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.floating-whatsapp svg {
+  width: 20px;
+  height: 20px;
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
+}
+
+.back-to-top {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-wine);
+  color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 248, 244, 0.2);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-normal), background-color var(--transition-fast);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: var(--color-rose);
+}
+
+.back-to-top svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================================================
+   ANIMAÇÕES DE ROLAGEM SUAVES (Scroll Reveals)
+   ========================================================================== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* Respeito à preferência de redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE E ADAPTAÇÃO MOBILE / TABLET
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid,
+  .about-grid,
+  .challenges-layout,
+  .process-layout,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-visual {
+    order: -1;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .about-visual {
+    max-width: 340px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .about-timeline-cards {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .challenges-intro,
+  .process-left {
+    position: static;
+  }
+
+  .solution-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .solution-steps .step-card:last-child {
+    grid-column: span 2;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .digital-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-text-full {
+    display: none;
+  }
+
+  .brand-text-short {
+    display: inline-block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 82%;
+    max-width: 340px;
+    height: 100vh;
+    background-color: var(--color-wine-dark);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6rem 2rem 2rem;
+    gap: 1.5rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+    transition: right var(--transition-normal);
+    z-index: 1005;
+    overflow-y: auto;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .challenges-grid,
+  .benefits-grid,
+  .services-grid,
+  .solution-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-steps .step-card:last-child {
+    grid-column: span 1;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-meta-contacts {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .hero-meta-separator {
+    display: none;
+  }
+
+  .floating-whatsapp span {
+    display: none;
+  }
+
+  .floating-whatsapp {
+    padding: 0.85rem;
+    border-radius: 50%;
+  }
+
+  .contact-visual {
+    order: -1;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
