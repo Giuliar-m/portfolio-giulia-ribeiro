@@ -9,8 +9,7 @@ Desenvolvida com fidelidade estética à identidade visual do portfólio oficial
 ## 🌟 Serviços Oferecidos
 
 1. **Assistência Virtual**: Gestão de agenda, atendimento acolhedor e humanizado via WhatsApp/e-mail, follow-up, organização da rotina e acompanhamento de métricas.
-2. **Gestão de Tráfego para Google Ads**: Campanhas focadas em fisioterapeutas, psicólogos, estética e médicos de diversas especialidades para atrair pacientes diretamente ao WhatsApp.
-3. **Criação de Sites e Mini Sites**: Sites profissionais estruturados para aparecer no Google e mini sites de bio personalizados para Instagram.
+2. **Criação de Sites e Mini Sites**: Sites profissionais estruturados para aparecer no Google e mini sites de bio personalizados para Instagram.
 
 ---
 
